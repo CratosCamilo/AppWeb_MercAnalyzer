@@ -22,7 +22,7 @@
 - CSS Modules / Vanilla CSS
 
 ### 🧠 Backend (Scraper):
-- [Python](https://www.python.org/) - Repositorio: (https://github.com/CratosCamilo/ml-scraper)
+- [Python](https://github.com/CratosCamilo/ml-scraper)
 
 ### 🗃️ Base de datos:
 - [SQL Server](https://www.microsoft.com/en-us/sql-server)
