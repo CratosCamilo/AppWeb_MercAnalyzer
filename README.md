@@ -6,11 +6,11 @@
 
 ## 🚀 Características
 
-- 🔐 Sistema de autenticación con login y registro
-- 🕵️‍♂️ Búsqueda y análisis de productos usando scraping
-- 💵 Comparación de precios en tiempo real
+- 🔐 Sistema de autenticación con login y registro.
+- 🕵️‍♂️ Búsqueda y análisis de productos usando scraping.
+- 💵 Comparación de precios en tiempo real.
 - 🎨 Interfaz intuitiva.
-- 🔄 Cambios dinámicos de tema según la preferencia del sistema o usuario
+- 🔄 Cambios dinámicos de tema según la preferencia del sistema o usuario.
 
 ---
 
@@ -18,10 +18,11 @@
 
 ### 🖥️ Frontend:
 - [React](https://reactjs.org/)
+- TypeScript
 - CSS Modules / Vanilla CSS
 
 ### 🧠 Backend (Scraper):
-- [Python](https://www.python.org/)
+- [Python](https://www.python.org/) - Repositorio: (https://github.com/CratosCamilo/ml-scraper)
 
 ### 🗃️ Base de datos:
 - [SQL Server](https://www.microsoft.com/en-us/sql-server)
