@@ -1,22 +1,32 @@
-import { useEffect } from "react";
-import { iconApp } from "../assets";
+import { useState } from "react";
+import { FooterLogin, IntroductionLogin, LoginForm, NavBarLogin, RegisterForm } from "../components/Login";
 import { LOGIN_TITLE } from "../constants/constans";
 
 export const LoginDALayout = () => {
-    useEffect(() => { document.title = LOGIN_TITLE }, []);
+    document.title = LOGIN_TITLE;
+    const [isLoginVisible, setIsLoginVisible] = useState(false);
+    const [isRegisterVisible, setIsRegisterVisible] = useState(false);
 
     return (
         <>
             <main className="container-login">
                 <section className="main-content">
-                    <nav className="navbar">
-                        <div className="app-title">
-                            <img className="icon-app" alt="logo" src={iconApp} />
-                            <h1 className="title">MercAnalyzer</h1>
-                        </div>
-                    </nav>
+                    <NavBarLogin
+                        isLoginVisible={isLoginVisible}
+                        isRegisterVisible={isRegisterVisible}
+                        setIsLoginVisible={setIsLoginVisible}
+                        setIsRegisterVisible={setIsRegisterVisible}
+                    />
+                    <IntroductionLogin />
+                    <LoginForm
+                        isLoginVisible={isLoginVisible}
+                    />
+                    <RegisterForm
+                        isRegisterVisible={isRegisterVisible}
+                    />
+                    <FooterLogin />
                 </section>
-            </main>
+            </main >
         </>
     );
 }
