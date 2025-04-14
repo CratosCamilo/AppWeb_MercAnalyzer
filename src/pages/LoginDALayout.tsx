@@ -4,7 +4,7 @@ import { LOGIN_TITLE } from "../constants/constans";
 
 export const LoginDALayout = () => {
     document.title = LOGIN_TITLE;
-    const [isLoginVisible, setIsLoginVisible] = useState(false);
+    const [isLoginVisible, setIsLoginVisible] = useState(true);
     const [isRegisterVisible, setIsRegisterVisible] = useState(false);
 
     return (
@@ -17,12 +17,11 @@ export const LoginDALayout = () => {
                         setIsLoginVisible={setIsLoginVisible}
                         setIsRegisterVisible={setIsRegisterVisible}
                     />
-                    <IntroductionLogin />
-                    <LoginForm
-                        isLoginVisible={isLoginVisible}
-                    />
-                    <RegisterForm
-                        isRegisterVisible={isRegisterVisible}
+                    <LoginForm isLoginVisible={isLoginVisible} />
+                    <RegisterForm isRegisterVisible={isRegisterVisible} />
+                    <IntroductionLogin
+                        setIsLoginVisible={setIsLoginVisible}
+                        setIsRegisterVisible={setIsRegisterVisible}
                     />
                     <FooterLogin />
                 </section>

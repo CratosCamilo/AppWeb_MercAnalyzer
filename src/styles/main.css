@@ -468,7 +468,8 @@ main {
     transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
-.login-form .form {
+.login-form .form,
+.register-form .form {
     height: 100%;
     display: flex;
     margin: 0;
@@ -480,7 +481,8 @@ main {
     flex-direction: column;
 }
 
-.login-form .form h2 {
+.login-form .form h2,
+.register-form .form h2 {
     height: auto;
     display: grid;
     place-content: start;
@@ -491,6 +493,7 @@ main {
     border-bottom: 1px solid var(--color-gray-light);
 }
 
+.register-form .form .input-container,
 .login-form .form .input-container {
     display: flex;
     flex-direction: column;
@@ -501,17 +504,20 @@ main {
     gap: 5px;
 }
 
+.register-form .form .input-container *,
 .login-form .form .input-container * {
     width: 100%;
     text-align: left;
 }
 
+.register-form .form .input-container label,
 .login-form .form .input-container label {
     padding-left: 15px;
     font-size: var(--size-text-small);
     color: var(--color-blue-dark);
 }
 
+.register-form .form .input-container input,
 .login-form .form .input-container input {
     height: 40px;
     padding-left: 15px;
@@ -525,7 +531,8 @@ main {
     font-size: var(--size-text-tiny);
 }
 
-.login-form .form .button-submit {
+.login-form .form .button-submit,
+.register-form .form .button-submit {
     width: auto;
     color: white;
     background-color: var(--color-blue-dark);
@@ -535,7 +542,8 @@ main {
     transition: var(--transition-ease);
 }
 
-.login-form .form .button-submit:hover {
+.login-form .form .button-submit:hover,
+.register-form .form .button-submit:hover {
     background-color: black;
     border-color: var(--color-blue-dark);
 }
@@ -555,7 +563,8 @@ main {
     text-decoration: underline;
 }
 
-.login-form .form .input-container .icon-mail {
+.login-form .form .icon-mail,
+.register-form .form .icon-mail {
     width: 25px;
     height: 25px;
     right: 15px;
@@ -568,7 +577,8 @@ main {
     opacity: 0.5;
 }
 
-.login-form .form .input-container .icon-eye {
+.login-form .form .icon-eye,
+.register-form .form .icon-eye {
     width: 25px;
     height: 25px;
     right: 15px;
@@ -585,19 +595,27 @@ main {
     text-decoration: none;
 }
 
-.login-form .form .input-container .icon-eye.hide {
+.login-form .form .input-container .icon-eye.hide,
+.register-form .form .input-container .icon-eye.hide {
     background-image: var(--icon-off-password);
 }
 
+.register-form .form .others-options {
+    margin-top: 15px;
+}
+
+.register-form .form .others-options,
 .login-form .form .others-options {
     display: grid;
     place-content: center;
 }
 
+.register-form .form .others-options *,
 .login-form .form .others-options * {
     color: var(--color-blue-dark);
 }
 
+.register-form .form .others-options .icon-google,
 .login-form .form .others-options .icon-google {
     width: 25px;
     height: 25px;
@@ -605,6 +623,7 @@ main {
     object-position: center;
 }
 
+.register-form .form .others-options .separator,
 .login-form .form .others-options .separator {
     display: flex;
     justify-content: center;
@@ -612,6 +631,7 @@ main {
     margin-bottom: 15px;
 }
 
+.register-form .form .others-options .separator span,
 .login-form .form .others-options .separator span {
     width: 100px;
     height: 1px;
@@ -619,6 +639,7 @@ main {
     margin: 0 10px;
 }
 
+.register-form .form .others-options button,
 .login-form .form .others-options button {
     background-color: transparent;
     outline: none;
@@ -630,9 +651,10 @@ main {
     align-items: center;
     justify-content: center;
     gap: 5px;
-    transition: var(--transition-ease);
+    transition: var(--transition-fast);
 }
 
+.register-form .form .others-options button:hover,
 .login-form .form .others-options button:hover {
     font-weight: bold;
 }

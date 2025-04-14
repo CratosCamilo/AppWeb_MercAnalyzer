@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { MessageIconType } from "./types";
 
 export interface AuthContextProps {
     authenticated: boolean;
@@ -14,6 +15,11 @@ export interface RequireAuthProps {
     children: ReactNode;
 }
 
+export interface IntroductionLoginProps {
+    setIsLoginVisible: (isLoginVisible: boolean) => void;
+    setIsRegisterVisible: (isRegisterVisible: boolean) => void;
+}
+
 export interface LoginFormProps {
     isLoginVisible: boolean;
 }
@@ -27,4 +33,11 @@ export interface NavBarLoginProps {
     isRegisterVisible: boolean;
     setIsLoginVisible: (isLoginVisible: boolean) => void;
     setIsRegisterVisible: (isRegisterVisible: boolean) => void;
+}
+
+export interface ShowUserMessageProps {
+    title?: string;
+    message: string;
+    icon: MessageIconType;
+    confirmButtonText?: string;
 }

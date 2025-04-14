@@ -1,15 +1,20 @@
 import { useState } from "react";
 import { LoginFormProps } from "types/props";
 import { iconGoogle } from "../../assets";
+import { useAuthenticateUser } from "../../hooks";
 
 export const LoginForm = ({ isLoginVisible }: LoginFormProps) => {
     const [showPassword, setShowPassword] = useState(false);
+
+    const onSubmitLogin = useAuthenticateUser();
     const togglePasswordVisibility = () => setShowPassword((prev) => !prev);
 
     return (
         <div className={`login-form ${isLoginVisible ? "show" : ""}`}>
-            <form className="form">
+            <form className="form" onSubmit={onSubmitLogin}>
                 <h2 className="title-form">Iniciar sesión</h2>
+
+                {/* FIELDS */}
                 <div className="input-container">
                     <label htmlFor="username" className="label-input">Correo:</label>
                     <input type="text" id="username" name="username" className="input-field" />
@@ -30,10 +35,16 @@ export const LoginForm = ({ isLoginVisible }: LoginFormProps) => {
                     >
                     </button>
                 </div>
+
+                {/* SUBMIT BUTTON */}
                 <button type="submit" className="button-submit">Iniciar sesión</button>
+
+                {/* FORGOT PASSWORD */}
                 <div className="extra-links">
                     <a href="#">¿Olvidaste tu contraseña?</a>
                 </div>
+
+                {/* OTHER OPTIONS */}
                 <div className="others-options">
                     <div className="separator">
                         <span></span>
