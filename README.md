@@ -1,4 +1,4 @@
-# 🛒 MercAnalyzer
+# 🛒 MercAnalyzer - (CLIENT)
 
 **MercAnalyzer** es una plataforma web que permite a los usuarios registrarse, iniciar sesión y consultar precios de productos en Mercado Libre. A través de técnicas de **web scraping con Python**, obtiene datos actualizados y los compara para ayudar a tomar mejores decisiones de compra.
 
@@ -17,7 +17,7 @@
 ## 🧪 Tecnologías utilizadas
 
 ### 🖥️ Frontend:
-- [React](https://reactjs.org/)
+- [React](https://github.com/CratosCamilo/MercAnalyzer.Client) (Client)
 - TypeScript
 - CSS Modules / Vanilla CSS
 
