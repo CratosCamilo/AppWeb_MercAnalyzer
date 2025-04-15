@@ -1,7 +1,7 @@
 // useAuthenticateUser.ts
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts";
-import { useShowUserMessage } from "./useShowUserMessage";
+import { useShowUserMessage } from "../hooks";
 
 export const useAuthenticateUser = () => {
     const { login } = useAuth();

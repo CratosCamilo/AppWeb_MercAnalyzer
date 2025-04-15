@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FooterLogin, IntroductionLogin, LoginForm, NavBarLogin, RegisterForm } from "../components/Login";
+import { FooterLogin, IntroductionLogin, LoginForm, NavBarLogin, RegisterForm } from "../components/login";
 import { LOGIN_TITLE } from "../constants/constans";
 
 export const LoginDALayout = () => {
@@ -8,24 +8,22 @@ export const LoginDALayout = () => {
     const [isRegisterVisible, setIsRegisterVisible] = useState(false);
 
     return (
-        <>
-            <main className="container-login">
-                <section className="main-content">
-                    <NavBarLogin
-                        isLoginVisible={isLoginVisible}
-                        isRegisterVisible={isRegisterVisible}
-                        setIsLoginVisible={setIsLoginVisible}
-                        setIsRegisterVisible={setIsRegisterVisible}
-                    />
-                    <LoginForm isLoginVisible={isLoginVisible} />
-                    <RegisterForm isRegisterVisible={isRegisterVisible} />
-                    <IntroductionLogin
-                        setIsLoginVisible={setIsLoginVisible}
-                        setIsRegisterVisible={setIsRegisterVisible}
-                    />
-                    <FooterLogin />
-                </section>
-            </main >
-        </>
+        <main className="container-login">
+            <section className="main-content">
+                <NavBarLogin
+                    isLoginVisible={isLoginVisible}
+                    isRegisterVisible={isRegisterVisible}
+                    setIsLoginVisible={setIsLoginVisible}
+                    setIsRegisterVisible={setIsRegisterVisible}
+                />
+                <LoginForm isLoginVisible={isLoginVisible} />
+                <RegisterForm isRegisterVisible={isRegisterVisible} />
+                <IntroductionLogin
+                    setIsLoginVisible={setIsLoginVisible}
+                    setIsRegisterVisible={setIsRegisterVisible}
+                />
+                <FooterLogin />
+            </section>
+        </main >
     );
 }

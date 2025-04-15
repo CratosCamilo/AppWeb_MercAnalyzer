@@ -21,8 +21,9 @@
 - TypeScript
 - CSS Modules / Vanilla CSS
 
-### 🧠 Backend (Scraper):
-- [Python](https://github.com/CratosCamilo/ml-scraper)
+### 🧠 Backend:
+- [Python](https://github.com/CratosCamilo/ml-scraper) (Scraper)
+- [NextJS](https://github.com/CratosCamilo/MercAnalyzer.Api) (API)
 
 ### 🗃️ Base de datos:
 - [SQL Server](https://www.microsoft.com/en-us/sql-server)
