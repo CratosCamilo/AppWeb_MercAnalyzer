@@ -20,13 +20,17 @@ export const LoginForm = ({ isLoginVisible }: LoginFormProps) => {
                 {/* FIELDS */}
                 <div className="input-container">
                     <label htmlFor="email" className="label-input">Correo:</label>
-                    <input type="text" id="email" name="email" className="input-field" />
-                    <div className="icon-mail"></div>
+                    <input
+                        type="text"
+                        id="emailLogin"
+                        name="email"
+                        className="input-field" />
+                    <div className="icon-mail" />
                 </div>
                 <div className="input-container">
                     <label htmlFor="password" className="label-input">Contraseña:</label>
                     <input
-                        id="password"
+                        id="passwordLogin"
                         name="password"
                         className="input-field"
                         type={showPassword ? "text" : "password"}

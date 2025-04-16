@@ -2,17 +2,19 @@ import { useState } from "react";
 import { RegisterFormProps } from "types/props";
 import { iconGoogle } from "../../assets";
 import { useRegisterUser } from "../../hooks";
+import { Loading } from "../common";
 
 export const RegisterForm = ({ isRegisterVisible }: RegisterFormProps) => {
     const [showPassword, setShowPassword] = useState(false);
 
-    const onSubmitRegister = useRegisterUser();
+    const { onSubmitRegister, loading } = useRegisterUser();
     const togglePasswordVisibility = () => setShowPassword((prev) => !prev);
 
     return (
         <div
-            className={`register-form ${isRegisterVisible ? "show" : ""}`}
-        >
+            className={`register-form ${isRegisterVisible ? "show" : ""}`}>
+            {loading && <Loading />}
+
             <form className="form" onSubmit={onSubmitRegister}>
                 <h2 className="title-form">Regístrese</h2>
 
@@ -21,7 +23,7 @@ export const RegisterForm = ({ isRegisterVisible }: RegisterFormProps) => {
                     <label htmlFor="email">Correo:</label>
                     <input
                         type="email"
-                        id="email"
+                        id="emailRegister"
                         name="email"
                     />
                     <div className="icon-mail"></div>
@@ -29,7 +31,7 @@ export const RegisterForm = ({ isRegisterVisible }: RegisterFormProps) => {
                 <div className="input-container">
                     <label htmlFor="password">Contraseña:</label>
                     <input
-                        id="password"
+                        id="passwordRegister"
                         name="password"
                         className="input-field"
                         type={showPassword ? "text" : "password"}

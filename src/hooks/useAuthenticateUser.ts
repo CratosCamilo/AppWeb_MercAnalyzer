@@ -1,6 +1,7 @@
 // useAuthenticateUser.ts
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { NAVIGATES } from "../constants/constans";
 import { useAuth } from "../contexts";
 import { isEmptyStrings } from "../helpers";
 import { useShowUserMessage } from "../hooks";
@@ -31,7 +32,7 @@ export const useAuthenticateUser = () => {
             setLoading(false);
             if (email === "andres" && password === "123") {
                 login();
-                navigate("/search");
+                navigate(NAVIGATES.SEARCH);
             }
             else {
                 useShowUserMessage({

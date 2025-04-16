@@ -1,6 +1,7 @@
+import { ProductRecord } from 'types/props';
 import { exampleP, iconMercadoLibre } from '../../assets';
 
-export const CardHome = () => {
+export const CardHome = ({ }: ProductRecord) => {
     return (
         <article>
             <div className='product-name'>
@@ -23,6 +24,5 @@ export const CardHome = () => {
                 </div>
             </a>
         </article>
-
     );
 };

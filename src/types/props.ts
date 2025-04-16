@@ -41,3 +41,14 @@ export interface ShowUserMessageProps {
     icon: MessageIcon;
     confirmButtonText?: string;
 }
+
+export interface ProductRecord {
+    id: number;
+    name: string;
+    price: number;
+    imageUrl: string;
+}
+
+export interface ProductCardsHomeProps {
+    products: ProductRecord[];
+}

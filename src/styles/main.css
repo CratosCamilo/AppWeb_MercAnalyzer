@@ -741,11 +741,13 @@ main {
     justify-content: center;
     align-items: center;
     overflow: auto;
+    transition: var(--transition-ease);
 }
 
 .container-home .search-home__title {
     max-height: 25vh;
     overflow: hidden;
+    transition: var(--transition-ease);
 }
 
 .container-home .search-home__title h1 {
@@ -768,6 +770,7 @@ main {
 .container-home .search-home__content {
     max-height: 15vh;
     overflow: hidden;
+    transition: var(--transition-ease);
 }
 
 .container-home .search-home__content .search-home__input {
@@ -964,6 +967,7 @@ main {
     transform: translate(-50%, -50%);
     place-content: center;
     background-color: #ccccccb0;
+    z-index: 9999999;
 }
 
 .loading-spinner * {

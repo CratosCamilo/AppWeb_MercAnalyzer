@@ -1,4 +1,6 @@
 import { Navigate, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import { RequireAuth } from './components/auth';
+import { NAVIGATES } from './constants/constans';
 import { AuthProvider } from "./contexts";
 import { HomeLayout, LoginDALayout } from "./pages";
 
@@ -8,21 +10,20 @@ export const App = () => {
       <Router>
         <Routes>
           {/* LOGIN */}
-          <Route path="/login" element={<LoginDALayout />} />
+          <Route path={NAVIGATES.LOGIN} element={<LoginDALayout />} />
 
           {/* HOME */}
           <Route
-            path="/search"
+            path={NAVIGATES.SEARCH}
             element={
-              <HomeLayout />
-              // <RequireAuth>
-              //   <HomeLayout />
-              // </RequireAuth>
+              <RequireAuth>
+                <HomeLayout />
+              </RequireAuth>
             }
           />
 
           {/* DEFAULT ROUTE */}
-          <Route path="*" element={<Navigate to="/login" />} />
+          <Route path="*" element={<Navigate to={NAVIGATES.LOGIN} />} />
         </Routes>
       </Router>
     </AuthProvider>

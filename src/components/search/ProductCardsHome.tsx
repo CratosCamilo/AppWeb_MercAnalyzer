@@ -1,11 +1,12 @@
+import { ProductCardsHomeProps } from "types/props";
 import { CardHome } from "./CardHome";
 
-export const ProductCardsHome = () => {
+export const ProductCardsHome = ({ products }: ProductCardsHomeProps) => {
+    if (products.length === 0) return null;
+
     return (
         <section className="cards-container">
-            <CardHome />
-            <CardHome />
-            <CardHome />
+            {products.map((p, index) => <CardHome key={index} {...p} />)}
             <p className="information-cards">Al seleccionar un producto podrás acceder al enlace original publicado en Mercado Libre.</p>
         </section>
     );
