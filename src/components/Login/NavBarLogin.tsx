@@ -1,7 +1,10 @@
 import { NavBarLoginProps } from "types/props";
 import { iconApp } from "../../assets";
+import { useTheme } from "../../hooks";
 
 export const NavBarLogin = ({ isLoginVisible, isRegisterVisible, setIsLoginVisible, setIsRegisterVisible }: NavBarLoginProps) => {
+    const { toggleTheme } = useTheme();
+
     const toggleLogin = () => {
         setIsRegisterVisible(false);
         setIsLoginVisible(!isLoginVisible);
@@ -30,6 +33,7 @@ export const NavBarLogin = ({ isLoginVisible, isRegisterVisible, setIsLoginVisib
             >
                 Regístrese
             </button>
+            <button className="theme" onClick={toggleTheme}></button>
         </nav>
     );
-}
+};

@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { MessageIconType } from "./types";
+import { MessageIcon } from "./types";
 
 export interface AuthContextProps {
     authenticated: boolean;
@@ -38,6 +38,6 @@ export interface NavBarLoginProps {
 export interface ShowUserMessageProps {
     title?: string;
     message: string;
-    icon: MessageIconType;
+    icon: MessageIcon;
     confirmButtonText?: string;
 }

@@ -1,4 +1,3 @@
-export { FooterLogin } from './FooterLogin.tsx';
 export { IntroductionLogin } from './IntroductionLogin.tsx';
 export { LoginForm } from './LoginForm.tsx';
 export { NavBarLogin } from './NavBarLogin.tsx';

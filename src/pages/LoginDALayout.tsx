@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { FooterLogin, IntroductionLogin, LoginForm, NavBarLogin, RegisterForm } from "../components/login";
+import { FooterCommon } from "../components/common";
+import { IntroductionLogin, LoginForm, NavBarLogin, RegisterForm } from "../components/login";
 import { LOGIN_TITLE } from "../constants/constans";
 
 export const LoginDALayout = () => {
@@ -22,7 +23,7 @@ export const LoginDALayout = () => {
                     setIsLoginVisible={setIsLoginVisible}
                     setIsRegisterVisible={setIsRegisterVisible}
                 />
-                <FooterLogin />
+                <FooterCommon />
             </section>
         </main >
     );

@@ -1,3 +1,4 @@
+import './styles/main-dark.css';
 import './styles/main.css';
 
 import { StrictMode } from 'react';

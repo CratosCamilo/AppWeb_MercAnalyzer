@@ -19,13 +19,18 @@ export const RegisterForm = ({ isRegisterVisible }: RegisterFormProps) => {
                 {/* FIELDS */}
                 <div className="input-container">
                     <label htmlFor="email">Correo:</label>
-                    <input type="email" id="email" />
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                    />
                     <div className="icon-mail"></div>
                 </div>
                 <div className="input-container">
                     <label htmlFor="password">Contraseña:</label>
                     <input
                         id="password"
+                        name="password"
                         className="input-field"
                         type={showPassword ? "text" : "password"}
                     />
@@ -36,9 +41,10 @@ export const RegisterForm = ({ isRegisterVisible }: RegisterFormProps) => {
                     ></button>
                 </div>
                 <div className="input-container">
-                    <label htmlFor="password-confirm">Confirmar contraseña:</label>
+                    <label htmlFor="passwordConfirm">Confirmar contraseña:</label>
                     <input
-                        id="password-confirm"
+                        id="passwordConfirm"
+                        name="passwordConfirm"
                         className="input-field"
                         type={showPassword ? "text" : "password"}
                     />
@@ -69,4 +75,4 @@ export const RegisterForm = ({ isRegisterVisible }: RegisterFormProps) => {
             </form>
         </div >
     );
-}
+};

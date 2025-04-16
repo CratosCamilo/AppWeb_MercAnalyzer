@@ -19,4 +19,4 @@ export const IntroductionLogin = ({ setIsRegisterVisible, setIsLoginVisible }: I
             </button>
         </article>
     )
-}
+};

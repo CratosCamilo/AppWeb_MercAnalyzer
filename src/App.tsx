@@ -1,5 +1,4 @@
 import { Navigate, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
-import { RequireAuth } from "./components/Auth/RequireAuth";
 import { AuthProvider } from "./contexts";
 import { HomeLayout, LoginDALayout } from "./pages";
 
@@ -15,9 +14,10 @@ export const App = () => {
           <Route
             path="/search"
             element={
-              <RequireAuth>
-                <HomeLayout />
-              </RequireAuth>
+              <HomeLayout />
+              // <RequireAuth>
+              //   <HomeLayout />
+              // </RequireAuth>
             }
           />
 

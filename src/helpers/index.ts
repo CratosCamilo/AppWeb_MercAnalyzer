@@ -1,0 +1,2 @@
+export { isEmptyStrings } from './isEmptyStrings';
+

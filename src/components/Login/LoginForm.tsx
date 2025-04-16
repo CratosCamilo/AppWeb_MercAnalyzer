@@ -2,22 +2,25 @@ import { useState } from "react";
 import { LoginFormProps } from "types/props";
 import { iconGoogle } from "../../assets";
 import { useAuthenticateUser } from "../../hooks";
+import { Loading } from "../common";
 
 export const LoginForm = ({ isLoginVisible }: LoginFormProps) => {
     const [showPassword, setShowPassword] = useState(false);
 
-    const onSubmitLogin = useAuthenticateUser();
+    const { onSubmitLogin, loading } = useAuthenticateUser();
     const togglePasswordVisibility = () => setShowPassword((prev) => !prev);
 
     return (
         <div className={`login-form ${isLoginVisible ? "show" : ""}`}>
+            {loading && <Loading />}
+
             <form className="form" onSubmit={onSubmitLogin}>
                 <h2 className="title-form">Iniciar sesión</h2>
 
                 {/* FIELDS */}
                 <div className="input-container">
-                    <label htmlFor="username" className="label-input">Correo:</label>
-                    <input type="text" id="username" name="username" className="input-field" />
+                    <label htmlFor="email" className="label-input">Correo:</label>
+                    <input type="text" id="email" name="email" className="input-field" />
                     <div className="icon-mail"></div>
                 </div>
                 <div className="input-container">
@@ -59,4 +62,4 @@ export const LoginForm = ({ isLoginVisible }: LoginFormProps) => {
             </form>
         </div>
     );
-}
+};
