@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { ProductRecord } from "types/props";
-import { useShowUserMessage } from "../hooks";
+import { showUserMessage } from "../helpers";
 
 export const useSearchProducts = () => {
     const [loading, setLoading] = useState(false);
     const [products, setProducts] = useState<ProductRecord[]>([]);
 
-    const onSearch = (searchValue: string) => {
+    const onSearch = async (searchValue: string) => {
         if (searchValue.trim().length < 3) {
-            useShowUserMessage({
+            showUserMessage({
                 icon: "info",
                 title: "Información",
                 message: "Por favor ingrese al menos 3 carácteres para realizar la búsqueda."
@@ -44,7 +44,7 @@ export const useSearchProducts = () => {
             setLoading(false);
 
             if (simulatedProducts.length === 0) {
-                useShowUserMessage({
+                showUserMessage({
                     icon: "info",
                     title: "Información",
                     message: "No se encontraron resultados para su búsqueda."

@@ -10,12 +10,9 @@ export const useClearSession = () => {
 
     const onClearSession = () => {
         setLoading(true);
-
-        setTimeout(() => {
-            logout();
-            setLoading(false);
-            navigate(NAVIGATES.LOGIN);
-        }, 2000);
+        logout();
+        navigate(NAVIGATES.LOGIN);
+        setLoading(false);
     }
 
     return { onClearSession, loading };

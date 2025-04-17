@@ -1,21 +1,28 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { RegisterFormProps } from "types/props";
 import { iconGoogle } from "../../assets";
 import { useRegisterUser } from "../../hooks";
 import { Loading } from "../common";
 
 export const RegisterForm = ({ isRegisterVisible }: RegisterFormProps) => {
+    const formRef = useRef<HTMLFormElement>(null);
     const [showPassword, setShowPassword] = useState(false);
 
     const { onSubmitRegister, loading } = useRegisterUser();
     const togglePasswordVisibility = () => setShowPassword((prev) => !prev);
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        const isSuccess = await onSubmitRegister(e);
+        if (isSuccess) formRef.current?.reset();
+    }
 
     return (
         <div
             className={`register-form ${isRegisterVisible ? "show" : ""}`}>
             {loading && <Loading />}
 
-            <form className="form" onSubmit={onSubmitRegister}>
+            <form ref={formRef} className="form" onSubmit={handleSubmit}>
                 <h2 className="title-form">Regístrese</h2>
 
                 {/* FIELDS */}

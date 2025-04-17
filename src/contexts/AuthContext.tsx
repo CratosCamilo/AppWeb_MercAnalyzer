@@ -1,5 +1,6 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext } from 'react';
 import { AuthContextProps, AuthProviderProps } from 'types/props';
+import { applicationCookies } from '../helpers';
 
 const AuthContext = createContext<AuthContextProps | null>(null);
 
@@ -10,13 +11,25 @@ export const useAuth = (): AuthContextProps => {
 };
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
-  const [authenticated, setAuthenticated] = useState(false);
+  const { setToken, setRefreshToken } = applicationCookies();
 
-  const login = () => setAuthenticated(true);
-  const logout = () => setAuthenticated(false);
+  const isAuthenticated = () => {
+    const { token } = applicationCookies();
+    return token ? true : false;
+  }
+
+  const login = (token: string, tokenRefresh: string) => {
+    setToken(token);
+    setRefreshToken(tokenRefresh);
+  };
+
+  const logout = () => {
+    setToken(null);
+    setRefreshToken(null);
+  };
 
   return (
-    <AuthContext.Provider value={{ authenticated, login, logout }}>
+    <AuthContext.Provider value={{ isAuthenticated, login, logout }}>
       {children}
     </AuthContext.Provider>
   );

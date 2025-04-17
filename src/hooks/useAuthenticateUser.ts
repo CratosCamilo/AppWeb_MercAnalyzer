@@ -1,10 +1,10 @@
 // useAuthenticateUser.ts
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { NAVIGATES } from "../constants/constans";
+import { LoginRecord } from "types/props";
+import { NAVIGATES, URL_API_ENDPOINTS } from "../constants/constans";
 import { useAuth } from "../contexts";
-import { isEmptyStrings } from "../helpers";
-import { useShowUserMessage } from "../hooks";
+import { isEmptyStrings, regularFetch, showUserMessage } from "../helpers";
 
 export const useAuthenticateUser = () => {
     const [loading, setLoading] = useState(false);
@@ -12,13 +12,13 @@ export const useAuthenticateUser = () => {
     const { login } = useAuth();
     const navigate = useNavigate();
 
-    const onSubmitLogin = (e: React.FormEvent<HTMLFormElement>) => {
+    const onSubmitLogin = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const email = e.currentTarget.email.value;
         const password = e.currentTarget.password.value;
 
         if (isEmptyStrings([email, password])) {
-            useShowUserMessage({
+            showUserMessage({
                 icon: "info",
                 title: "Información incompleta",
                 message: "Para poder continuar ingrese su correo y contraseña."
@@ -26,22 +26,19 @@ export const useAuthenticateUser = () => {
             return;
         }
 
-        // Simalate loading.
         setLoading(true);
-        setTimeout(() => {
-            setLoading(false);
-            if (email === "andres" && password === "123") {
-                login();
-                navigate(NAVIGATES.SEARCH);
+        const { ok, data } = await regularFetch(
+            {
+                url: URL_API_ENDPOINTS.LOGIN,
+                body: { email, password }
             }
-            else {
-                useShowUserMessage({
-                    icon: "error",
-                    title: "Intente de nuevo",
-                    message: "Usuario o contraseña incorrectos."
-                });
-            }
-        }, 2000);
+        ).finally(() => setLoading(false));
+
+        if (ok) {
+            const { token, refreshToken }: LoginRecord = data;
+            login(token, refreshToken);
+            navigate(NAVIGATES.SEARCH);
+        }
     };
 
     return { onSubmitLogin, loading };

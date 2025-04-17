@@ -2,7 +2,7 @@ import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import { ShowUserMessageProps } from "types/props";
 
-export const useShowUserMessage = ({ title, message, icon, confirmButtonText }: ShowUserMessageProps) => {
+export const showUserMessage = ({ title, message, icon, confirmButtonText }: ShowUserMessageProps) => {
     const MySwal = withReactContent(Swal);
 
     MySwal.fire({

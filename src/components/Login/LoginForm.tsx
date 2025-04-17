@@ -21,7 +21,7 @@ export const LoginForm = ({ isLoginVisible }: LoginFormProps) => {
                 <div className="input-container">
                     <label htmlFor="email" className="label-input">Correo:</label>
                     <input
-                        type="text"
+                        type="email"
                         id="emailLogin"
                         name="email"
                         className="input-field" />

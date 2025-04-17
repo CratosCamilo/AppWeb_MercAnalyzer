@@ -1,18 +1,18 @@
 import { useState } from "react";
-import { isEmptyStrings } from "../helpers";
-import { useShowUserMessage } from "../hooks";
+import { URL_API_ENDPOINTS } from "../constants/constans";
+import { isEmptyStrings, regularFetch, showUserMessage } from "../helpers";
 
 export const useRegisterUser = () => {
     const [loading, setLoading] = useState(false);
 
-    const onSubmitRegister = (e: React.FormEvent<HTMLFormElement>) => {
+    const onSubmitRegister = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const email = e.currentTarget.email.value;
         const password = e.currentTarget.password.value;
         const confirmPassword = e.currentTarget.passwordConfirm.value;
 
         if (isEmptyStrings([email, password, confirmPassword])) {
-            useShowUserMessage({
+            showUserMessage({
                 icon: "info",
                 title: "Información incompleta",
                 message: "Para poder continuar ingrese información en los campos."
@@ -21,7 +21,7 @@ export const useRegisterUser = () => {
         }
 
         if (password !== confirmPassword) {
-            useShowUserMessage({
+            showUserMessage({
                 icon: "info",
                 title: "Verifique su contraseña",
                 message: "Las contraseñas ingresadas no coinciden."
@@ -29,11 +29,23 @@ export const useRegisterUser = () => {
             return;
         }
 
-        // Simulate loading.
         setLoading(true);
-        setTimeout(() => {
-            setLoading(false);
-        }, 2000);
+        const { ok } = await regularFetch(
+            {
+                url: URL_API_ENDPOINTS.REGISTER,
+                body: { email, password, confirmPassword }
+            }
+        ).finally(() => setLoading(false));
+
+        if (ok) {
+            showUserMessage({
+                icon: "success",
+                title: "Registro exitoso",
+                message: "Su cuenta ha sido creada con éxito. Por favor, inicie sesión."
+            });
+        }
+
+        return ok;
     };
 
     return { onSubmitRegister, loading };

@@ -1,9 +1,9 @@
 import { ReactNode } from "react";
-import { MessageIcon } from "./types";
+import { HttpMethod, MessageIcon } from "./types";
 
 export interface AuthContextProps {
-    authenticated: boolean;
-    login: () => void;
+    isAuthenticated: () => boolean;
+    login: (token: string, tokenRefresh: string) => void;
     logout: () => void;
 }
 
@@ -51,4 +51,28 @@ export interface ProductRecord {
 
 export interface ProductCardsHomeProps {
     products: ProductRecord[];
+}
+
+export interface RegularFetchProps {
+    url: string;
+    method?: HttpMethod;
+    body?: object;
+    headers?: Record<string, string>;
+}
+
+export interface CookiesApp {
+    token: string | null;
+    refreshToken: string | null;
+    setToken: (value: string | null) => void;
+    setRefreshToken: (value: string | null) => void;
+}
+
+export interface LoginRecord {
+    token: string;
+    refreshToken: string;
+}
+
+export interface FetchResponse {
+    ok: boolean;
+    data: any;
 }
