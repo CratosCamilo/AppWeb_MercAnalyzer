@@ -1,5 +1,6 @@
 import { NavBarLoginProps } from "types/props";
 import { iconApp } from "../../assets";
+import { APP_NAME } from "../../constants/constans";
 import { useTheme } from "../../hooks";
 
 export const NavBarLogin = ({ isLoginVisible, isRegisterVisible, setIsLoginVisible, setIsRegisterVisible }: NavBarLoginProps) => {
@@ -19,7 +20,7 @@ export const NavBarLogin = ({ isLoginVisible, isRegisterVisible, setIsLoginVisib
         <nav className="navbar">
             <div className="app-title">
                 <img className="icon-app" alt="logo" src={iconApp} />
-                <h1 className="title">MercAnalyzer</h1>
+                <h1 className="title">{APP_NAME}</h1>
             </div>
             <button
                 className={`${isLoginVisible ? "selected" : ""} button-login`}

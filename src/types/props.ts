@@ -86,3 +86,8 @@ export interface FetchResponse {
     ok: boolean;
     data: any;
 }
+
+export interface UserRecord {
+    userId: string,
+    email: string
+}

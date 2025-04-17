@@ -775,6 +775,7 @@ main {
 
 .container-home .search-home__content .search-home__input {
     width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -807,7 +808,7 @@ main {
 }
 
 .container-home .search-home__content .search-home__input button {
-    margin: 15px;
+    margin: 10px;
     width: auto;
     border: 1px solid var(--color-blue-dark);
     border-radius: var(--radius-rounded);
@@ -872,7 +873,7 @@ main {
 }
 
 .container-home .search-home .cards-container .product-card:hover .product-image {
-    transform: scale(1.03);
+    transform: scale(1.05);
 }
 
 .container-home .search-home .cards-container .card-content {
