@@ -88,6 +88,5 @@ export interface FetchResponse {
 }
 
 export interface UserRecord {
-    userId: string,
     email: string
 }
