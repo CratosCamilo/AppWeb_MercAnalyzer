@@ -43,14 +43,24 @@ export interface ShowUserMessageProps {
 }
 
 export interface ProductRecord {
-    id: number;
-    name: string;
-    price: number;
-    imageUrl: string;
+    nombre: string,
+    precio: string,
+    imagen: string,
+    descripcion: string,
+    link: string
+}
+
+export interface CardHomeProps {
+    name: string,
+    price: string,
+    sourceImage: string,
+    description: string,
+    link: string,
+    isLowerPrice?: boolean
 }
 
 export interface ProductCardsHomeProps {
-    products: ProductRecord[];
+    products: CardHomeProps[];
 }
 
 export interface RegularFetchProps {

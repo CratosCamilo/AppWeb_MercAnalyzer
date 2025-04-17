@@ -23,7 +23,7 @@ export const App = () => {
           />
 
           {/* DEFAULT ROUTE */}
-          <Route path="*" element={<Navigate to={NAVIGATES.LOGIN} />} />
+          <Route path="*" element={<Navigate to={NAVIGATES.SEARCH} />} />
         </Routes>
       </Router>
     </AuthProvider>

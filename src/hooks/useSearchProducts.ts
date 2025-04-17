@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { ProductRecord } from "types/props";
-import { showUserMessage } from "../helpers";
+import { CardHomeProps, ProductRecord } from "types/props";
+import { URL_API_ENDPOINTS } from "../constants/constans";
+import { regularFetch, showUserMessage } from "../helpers";
 
 export const useSearchProducts = () => {
     const [loading, setLoading] = useState(false);
-    const [products, setProducts] = useState<ProductRecord[]>([]);
+    const [products, setProducts] = useState<CardHomeProps[]>([]);
 
     const onSearch = async (searchValue: string) => {
         if (searchValue.trim().length < 3) {
@@ -17,33 +18,18 @@ export const useSearchProducts = () => {
         }
 
         setLoading(true);
-        setTimeout(() => {
-            // Simulate a search result.
-            const simulatedProducts: ProductRecord[] = [
-                {
-                    id: 1,
-                    name: "Producto 1",
-                    price: 100,
-                    imageUrl: "https://via.placeholder.com/150"
-                },
-                {
-                    id: 2,
-                    name: "Producto 2",
-                    price: 200,
-                    imageUrl: "https://via.placeholder.com/150"
-                },
-                {
-                    id: 2,
-                    name: "Producto 2",
-                    price: 200,
-                    imageUrl: "https://via.placeholder.com/150"
-                }
-            ];
+        const { ok, data } = await regularFetch(
+            {
+                url: URL_API_ENDPOINTS.SEARCH_PRODUCTS,
+                body: { filter: searchValue }
+            }
+        ).finally(() => setLoading(false));
 
-            setProducts(simulatedProducts);
-            setLoading(false);
+        if (ok) {
+            const result: ProductRecord[] = data;
+            console.log(result, 'color: green;');
 
-            if (simulatedProducts.length === 0) {
+            if (result.length === 0) {
                 showUserMessage({
                     icon: "info",
                     title: "Información",
@@ -51,7 +37,19 @@ export const useSearchProducts = () => {
                 });
                 return;
             }
-        }, 2000);
+
+            const mapResponse = result.map((r): CardHomeProps => (
+                {
+                    name: r.nombre,
+                    price: r.precio,
+                    sourceImage: r.imagen,
+                    link: r.link,
+                    description: r.descripcion
+                })
+            );
+
+            setProducts(mapResponse);
+        }
     };
 
     return { onSearch, products, loading };
