@@ -985,3 +985,31 @@ main {
 .loading-spinner * {
     background-color: var(--color-blue-dark) !important;
 }
+
+.chat-toggle-btn {
+    color: white;
+    background-color: var(--color-blue-dark);
+    border-radius: var(--radius-rounded);
+    border: 1px solid var(--color-blue-dark);
+    padding: 10px 30px;
+    margin: 15px 0;
+    transition: var(--transition-ease);
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+}
+
+.chat-toggle-btn:hover {
+    background-color: black;
+    border-color: var(--color-blue-dark);
+}
+
+.myChatBot * {
+    transition: var(--transition-ease);
+}
+
+.myChatBot {
+    position: absolute;
+    right: 55px;
+    bottom: 65px;
+}

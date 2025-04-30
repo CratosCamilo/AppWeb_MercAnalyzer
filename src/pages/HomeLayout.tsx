@@ -1,4 +1,4 @@
-import { FooterCommon } from "../components/common";
+import { FooterCommon, MyChatBot } from "../components/common";
 import { NavBarHome, SearchHome } from "../components/search";
 import { HOME_TITLE } from "../constants/constans";
 
@@ -12,6 +12,7 @@ export const HomeLayout = () => {
                 <SearchHome />
             </section>
             <FooterCommon />
+            <MyChatBot />
         </main>
     );
 }

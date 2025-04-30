@@ -181,3 +181,15 @@
 .dark .loading-spinner * {
     background-color: var(--color-yellow-default) !important;
 }
+
+
+.dark .chat-toggle-btn {
+    background-color: var(--color-dark-default);
+    border-color: var(--color-dark-default);
+    color: var(--color-blue-dark);
+}
+
+.dark .chat-toggle-btn:hover {
+    background-color: white;
+    border-color: white;
+}
