@@ -848,6 +848,8 @@ main {
     max-height: 45vh;
 }
 
+
+
 .container-home .search-home .cards-container .product-card {
     height: 40vh;
     width: 40vh;
@@ -860,6 +862,8 @@ main {
     display: block;
     background-color: white;
 }
+
+
 
 .container-home .search-home .cards-container .product-image {
     height: 100%;

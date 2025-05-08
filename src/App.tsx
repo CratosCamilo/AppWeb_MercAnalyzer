@@ -1,5 +1,5 @@
 import { Navigate, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
-import { RequireAuth } from './components/auth';
+import { RequireAuth } from './components/Auth';
 import { NAVIGATES } from './constants/constans';
 import { AuthProvider } from "./contexts";
 import { HomeLayout, LoginDALayout } from "./pages";
