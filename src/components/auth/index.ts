@@ -1,2 +1,2 @@
-export { RequireAuth } from './RequireAuth.tsx';
+export { RequireAuth } from './requireAuth.tsx';
 
